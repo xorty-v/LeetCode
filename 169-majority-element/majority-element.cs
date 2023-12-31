@@ -1,16 +1,23 @@
 public class Solution {
     public int MajorityElement(int[] nums) 
     {
-        var dict = new Dictionary<int, int>();
+        int count = 0;
+        int candidate = nums[0];
 
         foreach (var num in nums)
         {
-            if (dict.ContainsKey(num))
-               dict[num]++;
-           else
-               dict.Add(num, 1);
+            if (num == candidate)
+                count++;
+            else
+                count--;
+
+            if(count == 0)
+            {
+                candidate = num;
+                count = 1;
+            }
         }
-    
-        return dict.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+
+        return candidate;
     }
 }
