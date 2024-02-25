@@ -1,17 +1,13 @@
 public class Solution {
     public int SingleNumber(int[] nums) 
     {
-        var set = new HashSet<int>();
+        int singleNumber = 0;
 
-        foreach (var n in nums)
+        foreach(var num in nums)
         {
-            if (set.Contains(n))
-                set.Remove(n);
-
-            else
-                set.Add(n);
+            singleNumber ^= num;
         }
 
-        return set.First();
+        return singleNumber;
     }
 }
