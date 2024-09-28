@@ -13,6 +13,6 @@ public class Solution {
                 dict.Add(i, nums[i]);
         }
 
-        return null;
+        return null;    
     }
 }
