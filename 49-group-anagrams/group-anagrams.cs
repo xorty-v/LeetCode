@@ -1,6 +1,5 @@
 public class Solution {
-    public IList<IList<string>> GroupAnagrams(string[] strs) 
-    {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
         var anagrams = new Dictionary<string, IList<string>>();
         
         foreach(var str in strs)
@@ -10,7 +9,9 @@ public class Solution {
             string sorted = new string(chars);
 
             if(!anagrams.ContainsKey(sorted))
-                anagrams[sorted] = new List<string>{};
+            {
+                anagrams[sorted] = new List<string>();
+            }
 
             anagrams[sorted].Add(str);
         }
