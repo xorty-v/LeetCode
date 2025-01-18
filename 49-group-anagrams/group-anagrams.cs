@@ -1,14 +1,14 @@
-public class Solution {
-    public IList<IList<string>> GroupAnagrams(string[] strs) {
+public class Solution 
+{
+    public IList<IList<string>> GroupAnagrams(string[] strs)
+    {
         var anagrams = new Dictionary<string, IList<string>>();
-        
-        foreach(var str in strs)
-        {
-            char[] chars = str.ToCharArray();
-            Array.Sort(chars);
-            string sorted = new string(chars);
 
-            if(!anagrams.ContainsKey(sorted))
+        foreach (var str in strs)
+        {
+            string sorted = new string(str.OrderBy(c => c).ToArray());
+
+            if (!anagrams.ContainsKey(sorted))
             {
                 anagrams[sorted] = new List<string>();
             }
