@@ -1,15 +1,32 @@
 public class Solution {
     public bool IsPalindrome(string s) 
     {
-        string text = new string(s.ToLower().Where(char.IsLetterOrDigit).ToArray());
-
         int left = 0;
-        int right = text.Length - 1;
+        int right = s.Length - 1;
 
-        while(left <= right)
+        s = s.ToLower();
+
+        while(left < right)
         {
-            if(text[left++] != text[right--])
+            if(!char.IsLetterOrDigit(s[left]))
+            {
+                left++;
+                continue;
+            }
+
+            if(!char.IsLetterOrDigit(s[right]))
+            {
+                right--;
+                continue;
+            }
+
+            if(s[left] != s[right])
+            {
                 return false;
+            }
+
+            left++;
+            right--;
         }
 
         return true;
