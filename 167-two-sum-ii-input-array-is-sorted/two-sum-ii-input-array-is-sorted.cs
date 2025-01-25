@@ -8,16 +8,22 @@ public class Solution {
         {
             int sum = numbers[left] + numbers[right];
 
-            if (sum == target)
-                return new int[] { ++left, ++right};
-            
-            if (sum < target)
-                left++;
+            if(sum == target)
+            {
+                return new int[] {++left, ++right};
+            }
 
-            if (sum > target)
+            if(sum < target)
+            {
+                left++;
+            }
+
+            if(sum > target)
+            {
                 right--;
-        } 
+            }
+        }
 
         return new int[0];
-    }   
+    }
 }
